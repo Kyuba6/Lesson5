@@ -34,20 +34,20 @@ def test_apartment_costs_with_optional_parameters():
         type='electricity'
     ))
 
-    costs = manager.get_apartment_costs('apartment-1', 2024, 1)
+    costs = manager.get_apartment_cost('apartment-1', 2024, 1)
     assert costs is None
 
-    costs = manager.get_apartment_costs('apart-polanka', 2024, 3)
+    costs = manager.get_apartment_cost('apart-polanka', 2024, 3)
     assert costs == 0.0
 
-    costs = manager.get_apartment_costs('apart-polanka', 2024, 1)
+    costs = manager.get_apartment_cost('apart-polanka', 2024, 1)
     assert costs == 222.0
 
-    costs = manager.get_apartment_costs('apart-polanka', 2025, 1)
+    costs = manager.get_apartment_cost('apart-polanka', 2025, 1)
     assert costs == 910.0
     
-    costs = manager.get_apartment_costs('apart-polanka', 2024)
+    costs = manager.get_apartment_cost('apart-polanka', 2024)
     assert costs == 1372.0
 
-    costs = manager.get_apartment_costs('apart-polanka')
+    costs = manager.get_apartment_cost('apart-polanka')
     assert costs == 3532.0
